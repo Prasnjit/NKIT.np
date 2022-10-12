@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .search-container {
+            box-sizing: border-box;
+        }
+
+        .search-containerbody {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid palevioletred;
+            border: none;
+            background-color: gainsboro;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: pink;
+        }
+
+        @media screen and (max-width: 650px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid palevioletred;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #fdfdfd00;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        .aside {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+        }
+
+
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .header {
+            background: #602727;
+            padding: 1%;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 100%;
+        }
+
+        .column1 {
+            float: left;
+            width: 30%;
+            padding: 1px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column2 {
+            float: right;
+            width: 70%;
+            padding: 1px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column1.img {
+            width: fit-content;
+        }
+
+        .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .column a:hover {
+            background-color: #ddd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container {
+            float: left;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        .topnav .login-container button:hover {
+            background-color: wheat;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 100%) {
+            .column {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="top_header">
+            <div class="row">
+                <div class="column1" style="background-color:white;">
+                    <img src="https://th.bing.com/th/id/OIP.VJKh7A1Kz1RazynzczucvAHaFj?pid=ImgDet&rs=1" alt="Workplace"
+                        usemap="#workmap" width="100" height="79">
+
+                </div>
+                <div class="column2" style="background-color:white; width: 20%;">
+                    <div class="topnav">
+
+                        <div class="login-container">
+
+                            <button type="submit">Login||Sign up</button>
+
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="column2" style="width: 50%; float: right;">
+                    <marquee>Login for more feature option and latest update.</marquee>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="#news">Reader choice</a>
+            <div class="dropdown">
+                <button class="dropbtn">class 10
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h4>Mega Menu</h4>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>English Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Nepali Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Prastice Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                            <a href="#">2016</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 11
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 12
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Bridge coures
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">+2 Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Lok sewa
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">Chemistry</a>
+                            <a href="#">Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">GK</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">AG Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Note Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Medical Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Practise Book</a>
+                            <a href="#">Important Notes </a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">IELTS Prep
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Prastice Course</h3>
+                            <a href="#">Reading</a>
+                            <a href="#">Writing </a>
+                            <a href="#">Listning</a>
+                            <a href="#">Speaking</a>
+                            <a href="#">IELTS Explain Video</a>
+                            <a href="#">Practise Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+                <h1 style="box-shadow: 10px 10px 5px rgb(160, 222, 243); text-align:center;">Headings</h1>
+                <ul>
+                    <li><a href="./Grandmother.html">Grandmother</a></li>
+                    <li><a href="./About Love.html" type="buttons">About Love</a></li>
+                    <li><a href="./The House Call.html" type="buttons">The House Call </a></li>
+                    <li><a href="./Fear.html" type="buttons">Fear</a></li>
+                    <li><a href="./The Loving Mother.html">The Loving Mother</a></li>
+                    <li><a href="./My Heart Leaps Up.html" type="buttons">My Heart Leaps Up</a></li>
+                    <li><a href="./Speaking of Children.html" type="buttons">Speaking of Children </a></li>
+                    <li><a href="./Look At A Teacup.html" type="buttons">Look At A Teacup</a></li>
+                    <li><a href="./A Worn Path.html">A Worn Path</a></li>
+                    <li><a href="./The Three Days Blow.html" type="buttons">The Three Days Blow</a></li>
+                    <li><a href="./The Poplar Field.html" type="buttons">The Poplar Field </a></li>
+                    <li><a href="./The Nightmare Life Without Fuel.html" type="buttons">The Nightmare Life Without
+                            Fuel</a></li>
+                    <li><a href="./Unchopping a Tree.html">Unchopping a Tree</a></li>
+                    <li><a href="./Keeping Things Whole.html" type="buttons">Keeping Things Whole</a></li>
+                    <li><a href="./Concrete Cat.html" type="buttons">Concrete Cat </a></li>
+                    <li><a href="./Oops! How’s That Again.html" type="buttons">Oops! How’s That Again</a></li>
+                    <li><a href="./Malini.html" type="buttons">Malini</a></li>
+                    <li><a href="./The Six Million Dollar Man.html">The Six Million Dollar Man</a></li>
+                    <li><a href="./On the Vanity of Worldly Greatness.html" type="buttons">On the Vanity of Worldly
+                            Greatness</a></li>
+                    <li><a href="./In Bed.html" type="buttons">In Bed </a></li>
+                    <li><a href="./The Gardener.html" type="buttons">The Gardener</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-s-9">
+                <h2 style="text-align: center;">About Love </h2>
+
+                <div class="content">
+
+                    <p style="text-align: justify;">“About Love “presents three-dimensional love stories. The first love
+                        is of Nikanor and Palegeya, second is of Alyohin and a Russian girl, and the third Alyohin and a
+                        married women Anna. The Love of Luganovich and Anna is one of the third parts. These three
+                        stories are the representatives of the three categories of love.</p>
+                    <p style="text-align: justify;">The first story is an example of a violent love story. The main
+                        character- Nikanor- was a drunkard, and interestingly religious minded. In due course of his
+                        stay in Alyolin’s house, he fell in love with Palegeya. He instated that Palageya married him.
+                        Sometimes he used to beat her in his intoxicated state to prevent herself from her husband. She
+                        used to hide under the bed of Alyohin. Second love-story is the materialistic love. The lady is
+                        concerned with the money only. Every time Alyohin held her in his arm, she used to ask for a
+                        months allowance. The third story, which is the main story, is the unexpressed love. It presents
+                        a sequence of events in the life of Alyohin and his attraction towards Anna.<span
+                            id="more-224"></span></p>
+                   
+                    <p style="text-align: justify;">According to the story, Alyohin was a student and his father was a
+                        farmer. Therefore, his father spent the amount needed for his study at university. Because of
+                        it, he was in debt. To pay debt Alyohin had no options but to return to his farm and labored
+                        hard. However, his desire to live civilized life continued and to fulfill it, he stayed up
+                        stairs, read a book, and drank liquor but it did not last long. One night a priest came and
+                        drank the whole of his liquor. From that day onwards he started living downstairs and slept on
+                        the sledge (small hut).</p>
+                    <p style="text-align: justify;">Before he was here, he was appointed as an honorary judge in town.
+                        During his period, he came in contact with a Luganovich, who surprisingly invited Alyohin for
+                        dinner in his home. When they were having dinner, he got an opportunity to see Anna. From the
+                        very first sight, he started to like her. He found her beautiful, impressive and elegant. Hence,
+                        his first meeting with the lady reminded an unforgettable event. It was spring when he met her.
+                        In the summer, he was on his farm, but the memory of the lady remained. He desired very much to
+                        meet, but could not meet until autumn. In autumn, he went to the town where he met with Anna.
+                        She showed her worry about Alyohin and expressed wonder at his condition. After the show was
+                        over, he went to Anna house, talked with her husband, but returned back as usual without
+                        confessing his love for her.</p>
+                    <p style="text-align: justify;">After it, he kept on going to her house in his every visit to his
+                        town. At Anna’s house, he was welcomed cordially and regarded as the noble fellow. When he met
+                        her, she played piano with him, talked for hours, but their mind remained unexpressed. The
+                        Luganoviches sometimes requested him not to hesitate in asking for any kind of help. He also did
+                        not hesitate in doing so. In return, he brought gifts from the village.</p>
+                    <p style="text-align: justify;">Days passed in the same ways; neither had they expressed love. But
+                        he started appearing in the behavior of Anna. She behaved in mocking (smiling) way with
+                        Alyohin-at his fault she appreciated him. At last, Anna had to go to another place for her
+                        mental treatment. When it was the time for Anna’s departure, Alyohin entered into the apartment
+                        of Anna. There their eyes met which resulted in kissing one another, and expressing their love.
+                        However, their reunion did not result in their marriage. Alyohin got down in the next station,
+                        and thereafter they did not meet.</p>
+                    <p style="text-align: justify;">This story has a frame. In the beginning, the sky is grey and the
+                        trees are drenched. The environment is gloomy. At the end, when the Alyohin unloads his heart
+                        about love, the shining sun appears, after the rainfall. Alyohin tells this story in between
+                        this frame to his two guests: Burkin and Ivan.</p>
+                    <h2 style="text-align: justify;">Important Questions :</h2>
+                    <p style="text-align: justify;"><strong>1. What kinds of love experiences are suggested by Alyohin
+                            in “About Love”?</strong><br>Ans. In “About Love”, three kinds of love experiences are
+                        suggested by Alyohin. The first one is the love affair between Nikanor and Pelageya. Their love
+                        is sensual, often violent. Though there is no understanding between them, sexual passion binds
+                        them. Their love is not bound by marital relation. The second love affair is between Alyohin and
+                        a girl when he was studying at the university. Though Alyohin loved her, she thought love as a
+                        way to earn money. This love affair can be seen as the ugliest where sex is exchanged with
+                        money. The third love affair between Alyohin and Anna Alexeyevna can be termed as unexpressed
+                        love or spiritual love. Their heart meets, but being trapped by middle-class morality, their
+                        love remains unexpressed. They sacrifice their love for more good. Alyohin sacrifices his love
+                        because he thinks that it would bring disaster in the life of her children, mother and husband.
+                        Similarly, Alexeyevna does not express her love thinking that she wasn’t young enough to live
+                        with him.</p>
+                    <p style="text-align: justify;"><strong>2. Sketch the Character of Alyohin.</strong><br>Ans.
+                        Alyohin, a bachelor and a university graduate, lived in Sofinyo working labourously in his farm.
+                        He had to work on his farm to pay the debt that his father had spent on his education. He
+                        desired a civilized living of the upper class but could not afford it. In the past, while he was
+                        a university student, he fell in love with a girl who only loved his money. Since he was elected
+                        honorary justice of the peace, he often visited the town to take part in assizes and sessions.
+                        Once he was invited to the home of Luganovich to dine. There he met Anna Alexeyevna, aged 22 and
+                        married to Luganovich. They fell in love with each other but could not express their love. They
+                        chatted for hours, went to the theatre together but they parted coldly the next time. Later Anna
+                        suffered from nervous prostration and was sent to Crimea for treatment. During her departure,
+                        Alyohin had the courage to confess his love and kissed her, but had to part with her forever.
+                    </p>
+                    <p style="text-align: justify;">Alyohin’s vision of love is shaped by his own love affair. He thinks
+                        that when people are in love, they ask whether it is honorable or dishonorable, sensible or
+                        stupid, and what their love will lead to. For him, this reasoning is the source of
+                        dissatisfaction and irritation. He thinks that love is a great mystery. When one is in love, one
+                        should start love from higher, without reasoning whether their love is sin or virtue, or whether
+                        it brings happiness or unhappiness. According to him to what extent personal happiness counts in
+                        love is uncertain, it differs from person to person.</p>
+                    <p style="text-align: justify;">Alyohin is like a squirrel in a cage. He is trapped by reason,
+                        middle-class morality, and poverty. He is a man-of-thought. He fears to express his love for
+                        Anna because he is too much thinking about society’s moral standards. He sacrifices his love
+                        thinking that his marriage to Anna Alexeyevna would ruin the lives of her, her children, her
+                        mother, and her husband. He fears that he could not make her happy in his country house.</p>
+                    <p style="text-align: justify;"><strong>3. Sketch the Character of Anna Alexeyevna.</strong><br>Ans.
+                        Anna Alexeyevna is the main female character in the story “About Love”. She is a beautiful and
+                        charming young lady aged twenty-two. She is married to Luganovich, assistant president of the
+                        circuit court and aged over forty. Her marriage to an old man can be seen as the cause of her
+                        suffering. Her sexual urge cannot be fulfilled by the man double her age. So, she tries to get
+                        emotional fulfillment from Alyohin which later turns into love. She is also trapped in reason.
+                        She does not confess her love to Alyohin though she deeply loves him because she fears society’s
+                        moral standards. She also thought that she was not young and energetic enough for him to begin a
+                        new married life. Later she becomes the victim of nervous prostration because of psychological
+                        depression and nervousness.</p>
+                    <h2 style="text-align: justify;">Question for Practice :</h2>
+                    <ol>
+                        <li style="text-align: justify;">Why did Alyohin and Anna Alexeyevna conceal their love to each
+                            other?</li>
+                        <li style="text-align: justify;">Explain, “Love is different in each situation”.</li>
+                        <li style="text-align: justify;">Explain, “Love isn’t confined by the marital relationship”.
+                        </li>
+                    </ol>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="col-3 col-s-12">
+                <div class="aside">
+                    <h1>Answer sheet </h1>
+
+                    <table style="width:50% ">
+                        <style>
+                            table {
+                                margin-left: 20%;
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #f146469c;
+                        </style>
+                        <tr>
+                            <th>Q.No</th>
+                            <th>Asnwer</th>
+                            <th>Q.No</th>
+                            <th>Answer</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>2</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>A</td>
+                            <td>4</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>D</td>
+                            <td>6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>D</td>
+                            <td>8</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>A</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>C</td>
+                            <td>12</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>A</td>
+                            <td>14</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>B</td>
+                            <td>16</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>B</td>
+                            <td>18</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>C</td>
+                            <td>20</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>A</td>
+                            <td>22</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>D</td>
+                            <td>24</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>B</td>
+                            <td>26</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>B</td>
+                            <td>28</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>B</td>
+                            <td>30</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>A</td>
+                            <td>32</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>X</td>
+                            <td>34</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>D</td>
+                            <td>36</td>
+                            <td>C</td>
+                        </tr>
+                    </table>
+
+                    <h2>What?</h2>
+                    <p>Chania is a city on the island of Crete.</p>
+                    <h2>Where?</h2>
+                    <p>Crete is a Greek island in the Mediterranean Sea.</p>
+                    <h2>How?</h2>
+                    <p>You can reach Chania airport from all over Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Resize the browser window to see how the content respond to the resizing.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

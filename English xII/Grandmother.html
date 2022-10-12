@@ -1,0 +1,1029 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .search-container {
+            box-sizing: border-box;
+        }
+
+        .search-containerbody {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid palevioletred;
+            border: none;
+            background-color: gainsboro;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: pink;
+        }
+
+        @media screen and (max-width: 650px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid palevioletred;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #fdfdfd00;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        .aside {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+        }
+
+
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .header {
+            background: #602727;
+            padding: 1%;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 100%;
+        }
+
+        .column1 {
+            float: left;
+            width: 30%;
+            padding: 1px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column2 {
+            float: right;
+            width: 70%;
+            padding: 1px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column1.img {
+            width: fit-content;
+        }
+
+        .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .column a:hover {
+            background-color: #ddd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container {
+            float: left;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        .topnav .login-container button:hover {
+            background-color: wheat;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 100%) {
+            .column {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="top_header">
+            <div class="row">
+                <div class="column1" style="background-color:white;">
+                    <img src="https://th.bing.com/th/id/OIP.VJKh7A1Kz1RazynzczucvAHaFj?pid=ImgDet&rs=1" alt="Workplace"
+                        usemap="#workmap" width="100" height="79">
+
+                </div>
+                <div class="column2" style="background-color:white; width: 20%;">
+                    <div class="topnav">
+
+                        <div class="login-container">
+
+                            <button type="submit">Login||Sign up</button>
+
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="column2" style="width: 50%; float: right;">
+                    <marquee>Login for more feature option and latest update.</marquee>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="#news">Reader choice</a>
+            <div class="dropdown">
+                <button class="dropbtn">class 10
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h4>Mega Menu</h4>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>English Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Nepali Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Prastice Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                            <a href="#">2016</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 11
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 12
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Bridge coures
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">+2 Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Lok sewa
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">Chemistry</a>
+                            <a href="#">Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">GK</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">AG Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Note Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Medical Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Practise Book</a>
+                            <a href="#">Important Notes </a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">IELTS Prep
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Prastice Course</h3>
+                            <a href="#">Reading</a>
+                            <a href="#">Writing </a>
+                            <a href="#">Listning</a>
+                            <a href="#">Speaking</a>
+                            <a href="#">IELTS Explain Video</a>
+                            <a href="#">Practise Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+                <h1 style="box-shadow: 10px 10px 5px rgb(160, 222, 243); text-align:center;">Headings</h1>
+                <ul>
+                    <li><a href="./Grandmother.html">Grandmother</a></li>
+                    <li><a href="./The Lost Doll.html" type="buttons">The Lost Doll</a></li>
+                    <li><a href="./The House Call.html" type="buttons">The House Call </a></li>
+                    <li><a href="./Fear.html" type="buttons">Fear</a></li>
+                    <li><a href="./The Loving Mother.html">The Loving Mother</a></li>
+                    <li><a href="./My Heart Leaps Up.html" type="buttons">My Heart Leaps Up</a></li>
+                    <li><a href="./Speaking of Children.html" type="buttons">Speaking of Children </a></li>
+                    <li><a href="./Look At A Teacup.html" type="buttons">Look At A Teacup</a></li>
+                    <li><a href="./A Worn Path.html">A Worn Path</a></li>
+                    <li><a href="./The Three Days Blow.html" type="buttons">The Three Days Blow</a></li>
+                    <li><a href="./The Poplar Field.html" type="buttons">The Poplar Field </a></li>
+                    <li><a href="./The Nightmare Life Without Fuel.html" type="buttons">The Nightmare Life Without
+                            Fuel</a></li>
+                    <li><a href="./Unchopping a Tree.html">Unchopping a Tree</a></li>
+                    <li><a href="./Keeping Things Whole.html" type="buttons">Keeping Things Whole</a></li>
+                    <li><a href="./Concrete Cat.html" type="buttons">Concrete Cat </a></li>
+                    <li><a href="./Oops! How’s That Again.html" type="buttons">Oops! How’s That Again</a></li>
+                    <li><a href="./Malini.html" type="buttons">Malini</a></li>
+                    <li><a href="./The Six Million Dollar Man.html">The Six Million Dollar Man</a></li>
+                    <li><a href="./On the Vanity of Worldly Greatness.html" type="buttons">On the Vanity of Worldly
+                            Greatness</a></li>
+                    <li><a href="./In Bed.html" type="buttons">In Bed </a></li>
+                    <li><a href="./The Gardener.html" type="buttons">The Gardener</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-s-9">
+                <h2 style="text-align: center;">Grandmother </h2>
+
+                <div class="content">
+
+                    <p style="text-align: justify;">“Grandmother” written by American- Indian poet Ray Young Bear is a
+                        recollection of poet’s unfathomable love for his grandmother. The poet draws the picture of his
+                        grandmother – all loving, all inspiring- through the use of images.</p>
+                    <p style="text-align: justify;">As a grandson, the poet’s heart is very close to his grandmother.
+                        This poem presents the poet's deep sense of intimacy and closeness to his grandmother even after
+                        her death. He can not forget her. Her images come into his mind as fresh as before. He could
+                        recognize her by all senses except taste. If the poet would see her from a long distance, he
+                        could easily recognize her. Her warm and damp hands with the smell of roots on his head would
+                        make him guess that those were her caressing hands. Even the voice coming out of her tombstone
+                        would flow inside him like a light coming from a sleeping fire at night. Her words would inspire
+                        him and enlighten his spirit.</p>
+                    
+                    <h2 style="text-align: justify;">Important Questions :</h2>
+                    <p style="text-align: justify;"><strong>1. What are the four things that Ray Young Bear remembers
+                            about his grandmother?</strong><br>Ans. The things that Ray Young Bear remembers about his
+                        grandmother are her shape, her purple scarf, warm and damp hands, and her inspiring voice.</p>
+                    <p style="text-align: justify;"><strong>2. What images do you find in this poem written by a member
+                            of the Sauk and Fox (Mesquakie) Indian tribe of North America? To what senses do these
+                            images appeal?</strong><br>Ans. The poet has used images to discover two intertwined themes
+                        – recollection of his grandmother at one level and search for identity at another level. The
+                        images like ‘purple scarf’, ‘plastic shopping bag’, ‘the light … at night ‘ appeal to our sense
+                        of sight. These images also have a symbolic link to the Indian culture. ‘Plastic shopping bag’
+                        indicates the poverty of the Indian tribe. ‘The light …. at night’ associates that the
+                        spirituality of Indian culture guides him in the modern corrupt American society. The images
+                        like ‘smell of root’ appeal to our sense of smell. It indicates the work ethic of the Indian
+                        tribe and his grandmother. They are near to nature and are good farmers. ‘Warm and damp hands’
+                        appeal to our sense of touch. It also shows how his grandmother and Indian tribes work in fields
+                        with pleasure and sense of duty. ‘ A voice’ and ‘her words’ appeal to our sense of hearing. This
+                        indicates how the teachings and philosophy of Indian culture enlighten his spirits. Thus by the
+                        use of images, the poet has symbolically linked his grandmother to the lost culture of the
+                        Indian tribe.</p>
+                    <h2 style="text-align: justify;">Question for Practice :</h2>
+                    <ol>
+                        <li style="text-align: justify;">What are the four things that Ray Young Bear remembers about
+                            his grandmother?</li>
+                        <li style="text-align: justify;">What is the main idea of the poem?</li>
+                        <li style="text-align: justify;">What impression of grandmother does the speaker give in the
+                            poem ‘Grandmother’?</li>
+                    </ol>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="col-3 col-s-12">
+                <div class="aside">
+                    <h1>Answer sheet </h1>
+
+                    <table style="width:50% ">
+                        <style>
+                            table {
+                                margin-left: 20%;
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #f146469c;
+                        </style>
+                        <tr>
+                            <th>Q.No</th>
+                            <th>Asnwer</th>
+                            <th>Q.No</th>
+                            <th>Answer</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>2</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>A</td>
+                            <td>4</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>D</td>
+                            <td>6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>D</td>
+                            <td>8</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>A</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>C</td>
+                            <td>12</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>A</td>
+                            <td>14</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>B</td>
+                            <td>16</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>B</td>
+                            <td>18</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>C</td>
+                            <td>20</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>A</td>
+                            <td>22</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>D</td>
+                            <td>24</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>B</td>
+                            <td>26</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>B</td>
+                            <td>28</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>B</td>
+                            <td>30</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>A</td>
+                            <td>32</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>X</td>
+                            <td>34</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>D</td>
+                            <td>36</td>
+                            <td>C</td>
+                        </tr>
+                    </table>
+
+                    <h2>What?</h2>
+                    <p>Chania is a city on the island of Crete.</p>
+                    <h2>Where?</h2>
+                    <p>Crete is a Greek island in the Mediterranean Sea.</p>
+                    <h2>How?</h2>
+                    <p>You can reach Chania airport from all over Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Resize the browser window to see how the content respond to the resizing.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
