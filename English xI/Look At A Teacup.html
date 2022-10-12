@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .search-container {
+            box-sizing: border-box;
+        }
+
+        .search-containerbody {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid palevioletred;
+            border: none;
+            background-color: gainsboro;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: pink;
+        }
+
+        @media screen and (max-width: 650px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid palevioletred;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #fdfdfd00;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        .aside {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+        }
+
+
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .header {
+            background: #602727;
+            padding: 1%;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 100%;
+        }
+
+        .column1 {
+            float: left;
+            width: 30%;
+            padding: 1px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column2 {
+            float: right;
+            width: 70%;
+            padding: 1px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column1.img {
+            width: fit-content;
+        }
+
+        .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .column a:hover {
+            background-color: #ddd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container {
+            float: left;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        .topnav .login-container button:hover {
+            background-color: wheat;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 100%) {
+            .column {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="top_header">
+            <div class="row">
+                <div class="column1" style="background-color:white;">
+                    <img src="https://th.bing.com/th/id/OIP.VJKh7A1Kz1RazynzczucvAHaFj?pid=ImgDet&rs=1" alt="Workplace"
+                        usemap="#workmap" width="100" height="79">
+
+                </div>
+                <div class="column2" style="background-color:white; width: 20%;">
+                    <div class="topnav">
+
+                        <div class="login-container">
+
+                            <button type="submit">Login||Sign up</button>
+
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="column2" style="width: 50%; float: right;">
+                    <marquee>Login for more feature option and latest update.</marquee>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="#news">Reader choice</a>
+            <div class="dropdown">
+                <button class="dropbtn">class 10
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h4>Mega Menu</h4>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>English Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Nepali Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Prastice Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                            <a href="#">2016</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 11
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 12
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Bridge coures
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">+2 Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Lok sewa
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">Chemistry</a>
+                            <a href="#">Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">GK</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">AG Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Note Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Medical Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Practise Book</a>
+                            <a href="#">Important Notes </a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">IELTS Prep
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Prastice Course</h3>
+                            <a href="#">Reading</a>
+                            <a href="#">Writing </a>
+                            <a href="#">Listning</a>
+                            <a href="#">Speaking</a>
+                            <a href="#">IELTS Explain Video</a>
+                            <a href="#">Practise Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+                <h1 style="box-shadow: 10px 10px 5px rgb(160, 222, 243); text-align:center;">Headings</h1>
+                <ul>
+                    <li><a href="./The Magic of Words.html">The Recurring Dream</a></li>
+                    <li><a href="./The Lost Doll.html" type="buttons">The Lost Doll</a></li>
+                    <li><a href="./The House Call.html" type="buttons">The House Call </a></li>
+                    <li><a href="./Fear.html" type="buttons">Fear</a></li>
+                    <li><a href="./The Loving Mother.html">The Loving Mother</a></li>
+                    <li><a href="./My Heart Leaps Up.html" type="buttons">My Heart Leaps Up</a></li>
+                    <li><a href="./Speaking of Children.html" type="buttons">Speaking of Children </a></li>
+                    <li><a href="./Look At A Teacup.html" type="buttons">Look At A Teacup</a></li>
+                    <li><a href="./A Worn Path.html">A Worn Path</a></li>
+                    <li><a href="./The Three Days Blow.html" type="buttons">The Three Days Blow</a></li>
+                    <li><a href="./The Poplar Field.html" type="buttons">The Poplar Field </a></li>
+                    <li><a href="./The Nightmare Life Without Fuel.html" type="buttons">The Nightmare Life Without
+                            Fuel</a></li>
+                    <li><a href="./Unchopping a Tree.html">Unchopping a Tree</a></li>
+                    <li><a href="./Keeping Things Whole.html" type="buttons">Keeping Things Whole</a></li>
+                    <li><a href="./Concrete Cat.html" type="buttons">Concrete Cat </a></li>
+                    <li><a href="./Oops! How’s That Again.html" type="buttons">Oops! How’s That Again</a></li>
+                    <li><a href="./Malini.html" type="buttons">Malini</a></li>
+                    <li><a href="./The Six Million Dollar Man.html">The Six Million Dollar Man</a></li>
+                    <li><a href="./On the Vanity of Worldly Greatness.html" type="buttons">On the Vanity of Worldly
+                            Greatness</a></li>
+                    <li><a href="./In Bed.html" type="buttons">In Bed </a></li>
+                    <li><a href="./The Gardener.html" type="buttons">The Gardener</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-s-9">
+                <h2 style="text-align: center;">Look At A Teacup </h2>
+
+                <div class="content">
+
+                    <p style="text-align: justify;">The essay ‘Look At A Teacup’, written by Patricia Hampel, shows how
+                        simple writing helps in finding out great events. It is about the history of the writer’s mother
+                        in a delicate teacup. The two major themes of this essay are the relationship between a mother
+                        and her daughter and a connection between the past generation and present generation. Both these
+                        things are represented by a teacup.<span id="more-94"></span></p>
+                    <p style="text-align: justify;">The writer’s mother was married in the year 1939, the beginning of
+                        the Second World War. The same year she bought the teacups as gifts that were later given to the
+                        daughter. Hampel sees a connection between herself and her mother. The teacup reminds her of her
+                        mother’s history because her mother bought it in 1939. Through the cup, the mother transfers the
+                        culture and history of her time to the daughter. So, the cup is historical memory only. It was
+                        made in Czechoslovakia, which was taken over and destroyed by the armies of Adolf Hitler.</p>
+                   
+                    <p style="text-align: justify;">The essay associates and removes the objective description and
+                        subjective feeling of author and teacup. The author can express lots of feeling and ideas making
+                        the teacup as a medium. She tries to compare the falling of flower in the teacup as the
+                        destruction of beauty due to falling bombs. There was also cultural and social degradation. The
+                        style of this essay is the stream of consciousness. So, the reader feels somehow puzzled to
+                        track down the plot of the essay. She expresses all her feelings try to compete for each other.
+                        So, some sentences are fragmented. Logically they do not follow each other. The writing is
+                        beautifully decorated but the meanings deviate.</p>
+                    <p style="text-align: justify;">There is symbolic meaning of the things. ‘Falling flowers’ implies
+                        the degrading situation and ‘teacups’ were human rituals and arts. Certainly, the essayist
+                        refers the fall and break of culture. ‘Falling bodies’ were dying people in the war and ‘beds’
+                        have the meaning of the battlefield where the falling bodies lay. ‘The falling of bombs onto
+                        women’ means the tragic fate of these women. They had a disturbed married life. Fates of women
+                        were accused by the war and their destiny was darkened by the war and their destiny. ‘Falling
+                        countries’ refers to the degradation of humanity, peace, progress, brotherhood, culture, etc. of
+                        the countries involved in the war. This essay presents the reality of war and shows the real
+                        picture of the world caused by the destruction due to war.</p>
+                    <h2 style="text-align: justify;">Important Questions</h2>
+                    <p style="text-align: justify;"><strong>1. How does Hampel see herself and her mother connected by
+                            the teacup?</strong><br>Ans: Hampel’s mother bought a teacup in 1939. The Second World War
+                        also started in the same year. That teacup was brought to America from Czechoslovakia before the
+                        beginning of the war. The level of tea in the cup can be seen from outside. There are thin bands
+                        of gold around the edges of the saucer and the cap. There is also a band of gold on the inner,
+                        which has been disappeared by the constant use. There is no decoration outside the cup. There
+                        were flowers, later on, Hampel’s mother handed that cup to Hampel to hand over the tradition and
+                        culture of her own generation to Hampel. This is the gift given to Hampel by her mother.
+                        Hampel’s cultural values are disappearing as the bands of an inner circle of the saucer and
+                        teacup disappearing. This cup reminds Hampel about not only her mother but also the tragic
+                        destruction of the Second World War</p>
+                    <p style="text-align: justify;"><strong>2. What do you mean by “many things” fell that
+                            year?</strong><br>Ans: Here, many things fell that year indicates the destruction that
+                        happened during the Second World War. The second war started in 1939. The falling off bombs
+                        caused much destruction. The countries were captured by their enemies. Many European innocent
+                        youths lost their lives in the battlefield. The married women who lost their husband were
+                        compelled to fall in the beds of other people. Hampel’s mother had bought a teacup from
+                        Czechoslovakia before the Second World War began. But it was also destroyed in the war. In this
+                        way art, virginity, culture, tradition, and faith in marriage fell in that year.</p>
+                    <p style="text-align: justify;"><strong>3. How does the writer in her essay, “Look at a Teacup” show
+                            the relationship among the falling flowers and teacups, falling bodies and beds, and falling
+                            off bombs onto women and falling countries?</strong><br>Ans: The teacup about which the
+                        writer Hampel talks was brought from Czechoslovakia which was later on destroyed in the Second
+                        World War. Hampel’s mother offered that teacup to hand down her culture to her daughter but
+                        Hampel didn’t follow her mother’s culture of marrying and bearing children. The flowers inside
+                        the cup are scattered and they are falling separately. The band of gold on the inner circle is
+                        disappearing due to constant use. This indicates that the old tradition is disappearing. The
+                        Second World War began in 1930, many women lost their husband in the battlefield, and enemies
+                        compelled these windows to fall in the beds of others. Here, falling bodies and beds indicates
+                        the miserable condition of married women of that time. The Second World War made women’s future
+                        dark. The young girls were afraid of getting married. In the same way, many countries mean
+                        falling of freedom, peace and their own identity after the Second World War.</p>
+                    <p style="text-align: justify;"><strong>4. What is Hampel’s attitude toward
+                            marriage?</strong><br>Ans: The Hampel’s mother got married in 1939 when the Second World War
+                        began. It destroyed many things. Many married women who lost their husband and family members
+                        were compelled to fall on the beds of strange persons after own husband’s death in the
+                        battlefield. The destructive Second World War caused a sense of fear in young girl’s life. The
+                        writer herself saw the miserable condition of married women of that period. They lost the faith
+                        in marriage. Hampel takes `work’ as the important thing but not marriage. For writer and her
+                        generation marriage is a tragedy.</p>
+                    <p style="text-align: justify;"><strong>5. What does the story “Look at a Teacup” tell us about
+                            being women?</strong><br>Ans: Hampel says that in the generation of Hampel’s mother, there
+                        was great faith in marriage and family relations before marriage. The traditional women wanted
+                        to hand over their tradition and culture to their daughters. They considered that women Fshould
+                        marries for sexual relations. For the family life was greater than work. But modern women don’t
+                        follow the traditional values and work is greater than families for modern women. Marriage and
+                        family life is a tragedy for Hampel’s generation.</p>
+                    <p style="text-align: justify;"><strong>6. What does the essay “Look at a Teacup” tell us about
+                            marriage? About mother-daughter relationship? About the importance of
+                            family?</strong><br>Ans: The `teacup’ about which is talking was bought from Czechoslovakia.
+                        Later on, this country was destroyed in the Second World War. According to the writer, Hampel
+                        before the Second World War marriage and family life was considered a great thing. The mother
+                        used to hand over culture and their possession to their daughter. Hampel’s mother also did the
+                        same thing as other women used to do. Her mother gave her a teacup as a gift. The teacup reminds
+                        the writer her mother’s marriage, happy life, etc. they didn’t have sexual relations before
+                        marriage. This essay also tells us about the importance of happy family life before the Second
+                        World War. But during the Second World War, many married women lost their husbands and family
+                        members in the battlefield and compelled to fall in the beds of strange ones and these women
+                        cursed themselves of being women. After the Second World War, the importance of married life
+                        fell down. The Second World War caused fear in young women. Married life means to means to
+                        Hampel and Hampel’s generation is a tragedy.</p>
+                    <p style="text-align: justify;"><strong>7. Explain “The cup is a detail, a small uncharged finger
+                            from the mid-century bonfire”.</strong><br>Ans: The cup, which was offered to the writer
+                        Hampel, was brought from Czechoslovakia. It was a beautiful cup with beautiful flowers inside
+                        it. In that century, Czechoslovakia was destroyed in the Second World War. The Second World War
+                        started in 1939 or in the mid-century. The married women lost their husbands as well as family
+                        members in the war. Everything was destroyed but the cup remained unaffected. Here, uncharted
+                        finger indicates that whole body or everything brunt except little finger or little teacup in
+                        the war. The country Czechoslovakia lost its culture, tradition, identity, freedom, etc. in the
+                        war. Here, the unchanged finger is the symbol art of Czechs.</p>
+                    <h2 style="text-align: justify;">Questions for Practice</h2>
+                    <ol>
+                        <li style="text-align: justify;">What major event took place in 1939 and what were the “many
+                            things that fell that year?”</li>
+                        <li style="text-align: justify;">What does “Look at a Teacup” tell us about marriage? About
+                            mother-daughter relationship? About the importance of family about women?</li>
+                        <li style="text-align: justify;">In what significant ways are the mother and the daughter
+                            different from each other in “Look at a Teacup”? 4. Explain the daughter’s attitude to
+                            marriage.</li>
+                        <li style="text-align: justify;">How does the write in the essay, `Look at the Tea Cup’ show the
+                            relationship among falling flowers and teacup, falling bodies and beds, falling of the bombs
+                            into women and falling countries. Also, write Patricia Hampl’s view on Marriage.</li>
+                    </ol>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="col-3 col-s-12">
+                <div class="aside">
+                    <h1>Answer sheet </h1>
+
+                    <table style="width:50% ">
+                        <style>
+                            table {
+                                margin-left: 20%;
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #f146469c;
+                        </style>
+                        <tr>
+                            <th>Q.No</th>
+                            <th>Asnwer</th>
+                            <th>Q.No</th>
+                            <th>Answer</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>2</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>A</td>
+                            <td>4</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>D</td>
+                            <td>6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>D</td>
+                            <td>8</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>A</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>C</td>
+                            <td>12</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>A</td>
+                            <td>14</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>B</td>
+                            <td>16</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>B</td>
+                            <td>18</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>C</td>
+                            <td>20</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>A</td>
+                            <td>22</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>D</td>
+                            <td>24</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>B</td>
+                            <td>26</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>B</td>
+                            <td>28</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>B</td>
+                            <td>30</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>A</td>
+                            <td>32</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>X</td>
+                            <td>34</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>D</td>
+                            <td>36</td>
+                            <td>C</td>
+                        </tr>
+                    </table>
+
+                    <h2>What?</h2>
+                    <p>Chania is a city on the island of Crete.</p>
+                    <h2>Where?</h2>
+                    <p>Crete is a Greek island in the Mediterranean Sea.</p>
+                    <h2>How?</h2>
+                    <p>You can reach Chania airport from all over Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Resize the browser window to see how the content respond to the resizing.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>

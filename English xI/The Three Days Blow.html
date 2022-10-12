@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .search-container {
+            box-sizing: border-box;
+        }
+
+        .search-containerbody {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid palevioletred;
+            border: none;
+            background-color: gainsboro;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: pink;
+        }
+
+        @media screen and (max-width: 650px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid palevioletred;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #fdfdfd00;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        .aside {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+        }
+
+
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .header {
+            background: #602727;
+            padding: 1%;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 100%;
+        }
+
+        .column1 {
+            float: left;
+            width: 30%;
+            padding: 1px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column2 {
+            float: right;
+            width: 70%;
+            padding: 1px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column1.img {
+            width: fit-content;
+        }
+
+        .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .column a:hover {
+            background-color: #ddd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container {
+            float: left;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        .topnav .login-container button:hover {
+            background-color: wheat;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 100%) {
+            .column {
+                width: 100%;
+                height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="top_header">
+            <div class="row">
+                <div class="column1" style="background-color:white;">
+                    <img src="https://th.bing.com/th/id/OIP.VJKh7A1Kz1RazynzczucvAHaFj?pid=ImgDet&rs=1" alt="Workplace"
+                        usemap="#workmap" width="100" height="79">
+
+                </div>
+                <div class="column2" style="background-color:white; width: 20%;">
+                    <div class="topnav">
+
+                        <div class="login-container">
+
+                            <button type="submit">Login||Sign up</button>
+
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="column2" style="width: 50%; float: right;">
+                    <marquee>Login for more feature option and latest update.</marquee>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar">
+            <a href="#home">Home</a>
+            <a href="#news">Reader choice</a>
+            <div class="dropdown">
+                <button class="dropbtn">class 10
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h4>Mega Menu</h4>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>English Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Nepali Medium</h3>
+                            <a href="#">Science</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">EPH</a>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Optional Math</a>
+                            <a href="#">Computer</a>
+                        </div>
+                        <div class="column">
+                            <h3>Prastice Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                            <a href="#">2016</a>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 11
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">class 12
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Science</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Bridge coures
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">+2 Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Work Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Commurse</h3>
+                            <a href="#">English</a>
+                            <a href="#">Nepali</a>
+                            <a href="#">Account</a>
+                            <a href="#">Business</a>
+                            <a href="#">Marketing</a>
+                            <a href="#">Economices</a>
+                        </div>
+                        <div class="column">
+                            <h3>Practicle</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Computer</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Lok sewa
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">Chemistry</a>
+                            <a href="#">Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">GK</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">AG Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+                            <a href="#">Basic Maths</a>
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Note Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">Medical Entrance
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Subject</h3>
+                            <a href="#">Physices</a>
+                            <a href="#">chemistry</a>
+
+                            <a href="#">Biology</a>
+                            <a href="#">English</a>
+                            <a href="#">Practise Book</a>
+                            <a href="#">Important Notes </a>
+
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="dropdown">
+                <button class="dropbtn">IELTS Prep
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    <div class="header">
+                        <h2>Mega Menu</h2>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <h3>Prastice Course</h3>
+                            <a href="#">Reading</a>
+                            <a href="#">Writing </a>
+                            <a href="#">Listning</a>
+                            <a href="#">Speaking</a>
+                            <a href="#">IELTS Explain Video</a>
+                            <a href="#">Practise Book</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2022</a>
+                            <a href="#">2021</a>
+                            <a href="#">2020</a>
+                            <a href="#">2019</a>
+                            <a href="#">2018</a>
+                            <a href="#">2017</a>
+                        </div>
+                        <div class="column">
+                            <h3>Past Year Paper</h3>
+                            <a href="#">2016</a>
+                            <a href="#">2015</a>
+                            <a href="#">2014</a>
+                            <a href="#">2013</a>
+                            <a href="#">2012</a>
+                            <a href="#">2011</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-3 col-s-3 menu">
+                <h1 style="box-shadow: 10px 10px 5px rgb(160, 222, 243); text-align:center;">Headings</h1>
+                <ul>
+                    <li><a href="./The Magic of Words.html">The Recurring Dream</a></li>
+                    <li><a href="./The Lost Doll.html" type="buttons">The Lost Doll</a></li>
+                    <li><a href="./The House Call.html" type="buttons">The House Call </a></li>
+                    <li><a href="./Fear.html" type="buttons">Fear</a></li>
+                    <li><a href="./The Loving Mother.html">The Loving Mother</a></li>
+                    <li><a href="./My Heart Leaps Up.html" type="buttons">My Heart Leaps Up</a></li>
+                    <li><a href="./Speaking of Children.html" type="buttons">Speaking of Children </a></li>
+                    <li><a href="./Look At A Teacup.html" type="buttons">Look At A Teacup</a></li>
+                    <li><a href="./A Worn Path.html">A Worn Path</a></li>
+                    <li><a href="./The Three Days Blow.html" type="buttons">The Three Days Blow</a></li>
+                    <li><a href="./The Poplar Field.html" type="buttons">The Poplar Field </a></li>
+                    <li><a href="./The Nightmare Life Without Fuel.html" type="buttons">The Nightmare Life Without
+                            Fuel</a></li>
+                    <li><a href="./Unchopping a Tree.html">Unchopping a Tree</a></li>
+                    <li><a href="./Keeping Things Whole.html" type="buttons">Keeping Things Whole</a></li>
+                    <li><a href="./Concrete Cat.html" type="buttons">Concrete Cat </a></li>
+                    <li><a href="./Oops! How’s That Again.html" type="buttons">Oops! How’s That Again</a></li>
+                    <li><a href="./Malini.html" type="buttons">Malini</a></li>
+                    <li><a href="./The Six Million Dollar Man.html">The Six Million Dollar Man</a></li>
+                    <li><a href="./On the Vanity of Worldly Greatness.html" type="buttons">On the Vanity of Worldly
+                            Greatness</a></li>
+                    <li><a href="./In Bed.html" type="buttons">In Bed </a></li>
+                    <li><a href="./The Gardener.html" type="buttons">The Gardener</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-6 col-s-9">
+                <h2 style="text-align: center;">The Three Days Blow</h2>
+
+                <div class="content">
+
+                    <p style="text-align: justify;">“The Three Days Blow” is a plotless story in a dramatic way. Two
+                        friends Nick and Bill meet at Bill’s cottage. The weather is shown violent. There are rain and
+                        storm. So, this is an ideal situation to stay inside the home. They make fire, burn lots of logs
+                        and make themselves warm. They drink different alcohol and go on talking about different topics
+                        such as books, fishing, girlfriend, hunting, etc. without any plot, the story ends. The topics
+                        of the talk change suddenly from one subject to another.<span id="more-103"></span></p>
+                    <p style="text-align: justify;">There is no third character. We know a lot about the subject, which
+                        goes through their conversation only. Bill and Nick have no specific purpose of meetings or
+                        talking. The weather creates a situation for them. This keeps them inside when they talk about
+                        different topics. Hemingway creates the situation of drinking so that they can reveal their
+                        feelings. The scene moves forward excluding the opening exposition. He talks about the weather-
+                        rainfall, storm, wind, surf, etc. suddenly, he begins to have different sorts of drinks and talk
+                        about games of baseball. The topic of their talk shifts to books and writing. They slowly get
+                        drunk and talk about their habits. Then, they talk about Nick's girlfriend. This is the climax
+                        of the story. The theme of this scene lastly talks about hunting and go to.</p>
+                   
+                    <p style="text-align: justify;">When we read the drama, this scene opens one by one. The title of
+                        the story says something symbolically. Weather doesn’t remain the same always. Even a single day
+                        we can experience the fluctuation of weather. This is the principle of nature. Weather is
+                        dynamic; it doesn’t remain constant all the time. Just like the weather, mental conflict of the
+                        tension of suffering is presented in several scenes or sequence of events. In the beginning
+                        scene, nick looks calm but with the movement of different scenes, his calm face changes.</p>
+                    <p style="text-align: justify;">The setting of this story goes to be open with a nice scene. Nick is
+                        presented in the beginning on the way. He is going up to the village. The natural presentation
+                        is also seen. There is an orchard and we see the blowing of air, breeze that is the first autumn
+                        storm. Nick picks up an apple and keeps it in his pocket. The two characters Nick and Bill are
+                        presented inside the house. They have their personal talk. The story begins with the scene of
+                        woods, lakes, kitchen, sitting room, dining room etc. In the beginning, Nick is seen and the
+                        story ends with guns. They go down where Bill’s father was hunting. There are similar events
+                        between the weather and sequence of events of “The Three Days Blow”. There is conflict in the
+                        character Nick. He is getting confused about his girlfriend Marjorie. He wants to meet her again
+                        but Bill makes him leave her. He wants to marry her although her mother is bad. So the conflicts
+                        are similar. There is a union in both weather hand love of Nick with Marjorie. Weather becomes
+                        fair and love also becomes negotiable.</p>
+                    <p style="text-align: justify;">The story is dramatic because there are characters and dialogues and
+                        unity of time and place. There are two characters Nick and Bill who have continuous dialogues
+                        like in the drama. The setting of the story is also like a drama. There is internal and external
+                        scene. These scenes can be converted into the drama. They just talk about some little subject
+                        that is the subject matter of both drama and story. This story deals with love. Marjorie’s
+                        mother can be presented as an antagonist, Nick as a protagonist and Bill as an inciting force.
+                        So the story is dramatic.</p>
+                    <p style="text-align: justify;">The three-day blow and Nick’s mental condition are related.
+                        Marjorie’s business is the fundamental subject of the story. Nick, though he is not enjoyed with
+                        her, is going to get married. Because of her mother, he breaks relation from Marjorie, his
+                        beloved. After different kinds of talks, Bill and Nick’s conversations is concentrated.
+                        Marjorie’s business has broken his relation with her easily. So moment from Nick’s conflicts of
+                        love affairs, through suffering and separation to reconciliation ends. Thus Marjorie’s business
+                        is like a three day below that comes and disappears itself. The three-day blow comes, threatens
+                        and finally goes away. In the same way, conflict of love appears and disappears with despair and
+                        again with hope.</p>
+                    <p style="text-align: justify;">The Marjorie’s business is the fundamental subject of this story.
+                        Nick, though he was not engaged with her, was going to get married. Because of her mother, he
+                        broke relation from Marjorie, his beloved. His mother was very terrible. To marry her meant he
+                        would have married the whole family her mother.</p>
+                    <p style="text-align: justify;">Though the character Bill, the writer seems to be giving a practical
+                        message. Nick seems to be emotional but Bill is practical. Nick is ready to accept Marjorie
+                        although her mother was bad. He really loves her and ready to accept her. His life can be
+                        compared with the storm. The moment when he met Marjorie and he left her due to an unfavorable
+                        situation that moment is just like a violent storm, which doesn’t last for a long time in
+                        nature. Bill is practical. He says Nick to forget all the events related with Marjorie and lead
+                        his wife towards a new direction. Human life is a mixture of sorrow and happiness. If any
+                        disastrous event comes in our life also, we should control our emotion and lead our life towards
+                        a new phase and time happily. We should have the capacity to adjust with all the fluctuations
+                        that come into our life.</p>
+                    <h2 style="text-align: justify;">Important Questions</h2>
+                    <p style="text-align: justify;"><strong>1. Discuss “The Three Day Blow” as a dramatic
+                            story.</strong><br>Ans: Drama is a genre that tells a story through the speech and actions
+                        of the character in the story. Here, in “The Three Day Blow” the story is presented with the
+                        help of dialogues. In the drama, the story is presented in different places, in the same way in
+                        `The Three Day Blow’ there are scenes too. The whole story becomes clear by the dialogue between
+                        Nick and Bill in different places.</p>
+                    <p style="text-align: justify;"><strong>2. The story is presented in a sequence of approximately
+                            seven scenes. Can you find them?</strong><br>Ans: In this story, Nick and Bill are the main
+                        characters. They are presented in different places. In the first scenes, Nick and Bill stand
+                        outside the cottage. In the second scenes, Nick and Bill drink sitting in Bill’s sitting room.
+                        In the third scene, nick is picking up the apricots he has dropped in the kitchen. In the fourth
+                        scene, they are putting the log on the fire in the sitting room. In the fifth scene, they were
+                        coming from the kitchen. In the scene, they are in the sitting room talking about Marjorie. In
+                        the seventh scene, both friends Nick and Bill are outside the cottage and they are ready to go
+                        for hunting.</p>
+                    <p style="text-align: justify;"><strong>3. What is the relationship between the Three Day Blow and
+                            Nick’s mental condition?</strong><br>Ans: There is a similarity between the Three Day Blow
+                        and Nick’s mental condition. As the three-day blow comes suddenly and makes the tree leafless,
+                        similar kind of tragic blow comes in the love affair between Nick and Marjorie. Nick loves
+                        Marjorie but her mother is bad. The first-day blow indicates Nick’s hatred towards Marjorie’s
+                        mother; the second blow indicates his suffering from separation. The third-day blow indicates
+                        his planning for the reunion.</p>
+                    <h2 style="text-align: justify;">Questions for Practice</h2>
+                    <ol>
+                        <li style="text-align: justify;">What does Nick have to say about his married life in “Three Day
+                            Blow”? How does he say it?</li>
+                        <li style="text-align: justify;">What did Nick and Bill talk about?</li>
+                    </ol>
+                    <p></p>
+                </div>
+            </div>
+
+            <div class="col-3 col-s-12">
+                <div class="aside">
+                    <h1>Answer sheet </h1>
+
+                    <table style="width:50% ">
+                        <style>
+                            table {
+                                margin-left: 20%;
+                            }
+
+                            tr:nth-child(even) {
+                                background-color: #f146469c;
+                        </style>
+                        <tr>
+                            <th>Q.No</th>
+                            <th>Asnwer</th>
+                            <th>Q.No</th>
+                            <th>Answer</th>
+                        </tr>
+                        <tr>
+                            <td>1</td>
+                            <td>A</td>
+                            <td>2</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>A</td>
+                            <td>4</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>D</td>
+                            <td>6</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>D</td>
+                            <td>8</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>A</td>
+                            <td>10</td>
+                            <td>D</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>C</td>
+                            <td>12</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>13</td>
+                            <td>A</td>
+                            <td>14</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>15</td>
+                            <td>B</td>
+                            <td>16</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>17</td>
+                            <td>B</td>
+                            <td>18</td>
+                            <td>A</td>
+                        </tr>
+                        <tr>
+                            <td>19</td>
+                            <td>C</td>
+                            <td>20</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>21</td>
+                            <td>A</td>
+                            <td>22</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>23</td>
+                            <td>D</td>
+                            <td>24</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>25</td>
+                            <td>B</td>
+                            <td>26</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>27</td>
+                            <td>B</td>
+                            <td>28</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>29</td>
+                            <td>B</td>
+                            <td>30</td>
+                            <td>C</td>
+                        </tr>
+                        <tr>
+                            <td>31</td>
+                            <td>A</td>
+                            <td>32</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>33</td>
+                            <td>X</td>
+                            <td>34</td>
+                            <td>B</td>
+                        </tr>
+                        <tr>
+                            <td>35</td>
+                            <td>D</td>
+                            <td>36</td>
+                            <td>C</td>
+                        </tr>
+                    </table>
+
+                    <h2>What?</h2>
+                    <p>Chania is a city on the island of Crete.</p>
+                    <h2>Where?</h2>
+                    <p>Crete is a Greek island in the Mediterranean Sea.</p>
+                    <h2>How?</h2>
+                    <p>You can reach Chania airport from all over Europe.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Resize the browser window to see how the content respond to the resizing.</p>
+        </div>
+    </div>
+
+</body>
+
+</html>
