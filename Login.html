@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <style>
+        .search-container {
+            box-sizing: border-box;
+        }
+
+        .search-containerbody {
+            margin: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .topnav .search-container {
+            float: right;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1px solid palevioletred;
+            border: none;
+            background-color: gainsboro;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: pink;
+        }
+
+        @media screen and (max-width: 650px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid palevioletred;
+            }
+        }
+
+        .row::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+
+        [class*="col-"] {
+            float: left;
+            padding: 15px;
+        }
+
+        html {
+            font-family: "Lucida Sans", sans-serif;
+        }
+
+        .header {
+            background-color: #fdfdfd00;
+            color: #ffffff;
+            padding: 15px;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .menu li {
+            padding: 8px;
+            margin-bottom: 7px;
+            background-color: #33b5e5;
+            color: #ffffff;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .menu li:hover {
+            background-color: #0099cc;
+        }
+
+        .aside {
+            background-color: #33b5e5;
+            padding: 15px;
+            color: #ffffff;
+            text-align: center;
+            font-size: 14px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+        }
+
+        .footer {
+            background-color: #0099cc;
+            color: #ffffff;
+            text-align: center;
+            font-size: 12px;
+            padding: 15px;
+        }
+
+        /* For mobile phones: */
+        [class*="col-"] {
+            width: 100%;
+        }
+
+        @media only screen and (min-width: 600px) {
+
+            /* For tablets: */
+            .col-s-1 {
+                width: 8.33%;
+            }
+
+            .col-s-2 {
+                width: 16.66%;
+            }
+
+            .col-s-3 {
+                width: 25%;
+            }
+
+            .col-s-4 {
+                width: 33.33%;
+            }
+
+            .col-s-5 {
+                width: 41.66%;
+            }
+
+            .col-s-6 {
+                width: 50%;
+            }
+
+            .col-s-7 {
+                width: 58.33%;
+            }
+
+            .col-s-8 {
+                width: 66.66%;
+            }
+
+            .col-s-9 {
+                width: 75%;
+            }
+
+            .col-s-10 {
+                width: 83.33%;
+            }
+
+            .col-s-11 {
+                width: 91.66%;
+            }
+
+            .col-s-12 {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 768px) {
+
+            /* For desktop: */
+            .col-1 {
+                width: 8.33%;
+            }
+
+            .col-2 {
+                width: 16.66%;
+            }
+
+            .col-3 {
+                width: 25%;
+            }
+
+            .col-4 {
+                width: 33.33%;
+            }
+
+            .col-5 {
+                width: 41.66%;
+            }
+
+            .col-6 {
+                width: 50%;
+            }
+
+            .col-7 {
+                width: 58.33%;
+            }
+
+            .col-8 {
+                width: 66.66%;
+            }
+
+            .col-9 {
+                width: 75%;
+            }
+
+            .col-10 {
+                width: 83.33%;
+            }
+
+            .col-11 {
+                width: 91.66%;
+            }
+
+            .col-12 {
+                width: 100%;
+            }
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        table,
+        th,
+        td {
+            border: 1px solid red;
+        }
+
+        body {
+            margin: 0;
+        }
+
+        .navbar {
+            overflow: hidden;
+            background-color: #333;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .navbar a {
+            float: left;
+            font-size: 16px;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        .dropdown {
+            float: left;
+            overflow: hidden;
+        }
+
+        .dropdown .dropbtn {
+            font-size: 16px;
+            border: none;
+            outline: none;
+            color: white;
+            padding: 14px 16px;
+            background-color: inherit;
+            font: inherit;
+            margin: 0;
+        }
+
+        .navbar a:hover,
+        .dropdown:hover .dropbtn {
+            background-color: red;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            width: 100%;
+            left: 0;
+            box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content .header {
+            background: #602727;
+            padding: 1%;
+            color: white;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        /* Create three equal columns that floats next to each other */
+        .column {
+            float: left;
+            width: 33.33%;
+            padding: 10px;
+            background-color: #ccc;
+            height: 100%;
+        }
+
+        .column1 {
+            float: left;
+            width: 30%;
+            padding: 1px;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .column2 {
+            float: right;
+            width: 70%;
+            padding: 1px;
+            /* Should be removed. Only for demonstration */
+        }
+
+        .column1.img {
+            width: 100%;
+        }
+
+        .column a {
+            float: none;
+            color: black;
+            padding: 16px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .column a:hover {
+            background-color: #ddd;
+        }
+
+        /* Clear floats after the columns */
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        .topnav .login-container button {
+            float: right;
+            padding: 6px 10px;
+            margin-top: 8px;
+            margin-right: 16px;
+            background-color: white;
+            color: black;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container {
+            float: left;
+        }
+
+        .topnav input[type=text] {
+            padding: 6px;
+            margin-top: 8px;
+            font-size: 17px;
+            border: 1;
+        }
+
+        .topnav .search-container button {
+            float: right;
+            padding: 6px;
+            margin-right: 16px;
+            background: #ddd;
+            font-size: 17px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .topnav .search-container button:hover {
+            background: #ccc;
+        }
+
+        @media screen and (max-width: 600px) {
+            .topnav .search-container {
+                float: none;
+            }
+
+            .topnav a,
+            .topnav input[type=text],
+            .topnav .search-container button {
+                float: none;
+                display: block;
+                text-align: left;
+                width: 100%;
+                margin: 0;
+                padding: 14px;
+            }
+
+            .topnav input[type=text] {
+                border: 1px solid #ccc;
+            }
+        }
+
+        .topnav .login-container button:hover {
+            background-color: wheat;
+        }
+
+        /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+        @media screen and (max-width: 100%) {
+            .column {
+                width: 100%;
+                height: auto;
+            }
+        }
+
+        footer {
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+
+        }
+
+        footer::after {
+            position: absolute;
+            content: "";
+            left: -1px;
+            right: -1px;
+            bottom: -1px;
+            top: 0;
+            z-index: -1;
+            background-image: linear-gradient(-134deg, #C86DD7 0%, #3023AE 100%);
+        }
+
+        footer .shape-style span {
+            width: 120px;
+            height: 120px;
+            border-radius: 100px 130px 100px 315px;
+            position: absolute;
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        footer .shape-style span:nth-child(1) {
+            bottom: auto;
+            left: -3%;
+            top: -20px;
+            width: 150px;
+            height: 150px;
+        }
+
+        footer .shape-style span:nth-child(2) {
+            width: 50px;
+            height: 50px;
+            top: 15%;
+            right: 10%;
+        }
+
+        footer .shape-style span:nth-child(3) {
+            width: 75px;
+            height: 75px;
+            top: 320px;
+            right: 7%;
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        footer .shape-style span:nth-child(4) {
+            width: 100px;
+            height: 100px;
+            top: 38%;
+            right: auto;
+            left: 1%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        footer .shape-style span:nth-child(5) {
+            width: 50px;
+            height: 50px;
+            right: 40%;
+            bottom: 45%;
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        footer .shape-style span:nth-child(6) {
+            width: 100px;
+            height: 100px;
+            right: 6%;
+            bottom: 100px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        footer .shape-style span:nth-child(7) {
+            width: 50px;
+            height: 50px;
+            right: 5%;
+            bottom: 12%;
+        }
+
+        footer .shape-style span:nth-child(8) {
+            width: 100px;
+            height: 100px;
+            right: auto;
+            bottom: 11%;
+            left: 15%;
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        footer .wave-img {
+            transform: rotateX(180deg);
+        }
+
+        footer .footer-top h2 {
+            position: relative;
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.3em;
+            margin-bottom: 30px;
+        }
+
+        footer .footer-top h2 span {
+            font-weight: 300;
+        }
+
+        footer .footer-top .download-app-button {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            transition: all 0.3s ease-in;
+        }
+
+        footer .footer-top .download-app-button .download-btn {
+            border: 1px solid #fff;
+            margin-right: 20px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            color: #fff;
+            align-items: center;
+            float: left;
+            padding: 5px 20px;
+            border-radius: 4px;
+            margin-bottom: 10px;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        footer .footer-top .download-app-button .download-btn:hover,
+        footer .footer-top .download-app-button .download-btn.active {
+            background-color: #fff;
+        }
+
+        footer .footer-top .download-app-button .download-btn:hover p,
+        footer .footer-top .download-app-button .download-btn.active p {
+            color: #281483;
+        }
+
+        footer .footer-top .download-app-button .download-btn:hover i,
+        footer .footer-top .download-app-button .download-btn.active i {
+            background: linear-gradient(to bottom, #281483 15%, #8f6ed5 70%, #d782d9 94%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        footer .footer-top .download-app-button .download-btn i {
+            font-size: 28px;
+            line-height: 28px;
+            margin-right: 10px;
+            color: #fff;
+        }
+
+        footer .footer-top .download-app-button .download-btn p {
+            font-size: 16px;
+            line-height: 20px;
+            margin-bottom: 5px;
+        }
+
+        footer .footer-top .download-app-button .download-btn p small {
+            font-size: 12px;
+            line-height: 12px;
+            font-weight: 400;
+        }
+
+        footer .footer-top .inner-column h2 {
+            position: relative;
+            color: #ffffff;
+            font-size: 42px;
+            font-weight: 600;
+            line-height: 1.3em;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        footer .footer-top .inner-column h2 span {
+            font-weight: 300;
+        }
+
+        footer .footer-top .inner-column .subscribe-form form {
+            position: relative;
+        }
+
+        footer .footer-top .inner-column .subscribe-form form input {
+            display: block;
+            width: 100%;
+            height: 60px;
+            font-size: 14px;
+            padding: 14px 40px;
+            border-radius: 50px;
+            background: #ffffff;
+            font-family: "Poppins", sans-serif;
+            outline: 0;
+            border: none;
+        }
+
+        footer .footer-top .inner-column .subscribe-form form button {
+            position: absolute;
+            right: 2px;
+            top: 2px;
+            outline: 0;
+            height: 56px;
+            color: #00004f;
+            font-weight: 600;
+            border: none;
+            font-size: 14px;
+            line-height: 30px;
+            text-align: center;
+            background: #ffcc00;
+            border-radius: 50px;
+            padding: 15px 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+
+        footer .widgets-section .footer-widget h2 {
+            position: relative;
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: 600;
+            line-height: 1.4em;
+            margin-bottom: 22px;
+            letter-spacing: 1px;
+        }
+
+        footer .widgets-section .footer-widget .logo img {
+            width: 40%;
+            margin-bottom: 30px;
+        }
+
+        footer .widgets-section .footer-widget p {
+            font-size: 14px;
+            font-weight: 400;
+            color: #ffffff;
+            line-height: 1.7em;
+            margin-bottom: 20px;
+        }
+
+        footer .widgets-section .footer-widget .footer-info {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        footer .widgets-section .footer-widget .footer-info li {
+            position: relative;
+            padding-left: 25px;
+            font-size: 15px;
+            margin-bottom: 12px;
+            line-height: 1.8em;
+            font-weight: 400;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        footer .widgets-section .footer-widget .footer-info li i {
+            position: absolute;
+            content: "";
+            left: 0px;
+            top: 7px;
+            color: #fdd415;
+            font-size: 14px;
+        }
+
+        footer .widgets-section .footer-widget .list {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        footer .widgets-section .footer-widget .list li a {
+            position: relative;
+            font-size: 15px;
+            padding-left: 25px;
+            color: rgba(255, 255, 255, 0.9);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        footer .widgets-section .footer-widget .list li a:hover {
+            color: #ffcc00;
+        }
+
+        footer .widgets-section .footer-widget .list li a::before {
+            position: absolute;
+            content: "";
+            left: 0px;
+            top: 0px;
+            line-height: 1em;
+            font-family: "FontAwesome";
+        }
+
+        footer .widgets-section .footer-widget.twitter-widget .tweet-block {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        footer .widgets-section .footer-widget.twitter-widget .tweet-block p {
+            position: relative;
+            font-size: 14px;
+            line-height: 1.8em;
+            margin-bottom: 10px;
+            color: rgba(255, 255, 255, 0.95);
+        }
+
+        footer .widgets-section .footer-widget.twitter-widget .tweet-block p i {
+            color: #0397ff;
+            font-size: 20px;
+            margin-right: 8px;
+        }
+
+        footer .widgets-section .footer-widget.twitter-widget .tweet-block .author-name {
+            position: relative;
+            color: #ffcc00;
+            font-size: 14px;
+            font-style: italic;
+        }
+
+        footer .footer-bottom .inner-content {
+            padding: 22px 0px;
+            border-top: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        footer .footer-bottom .inner-content p {
+            position: relative;
+            color: #ffffff;
+            font-size: 14px;
+        }
+
+        footer .footer-bottom .inner-content p span {
+            color: #ffcc00;
+        }
+
+        footer .footer-bottom .inner-content .social-icon {
+            list-style-type: none;
+            text-align: right;
+        }
+
+        footer .footer-bottom .inner-content .social-icon li {
+            position: relative;
+            margin-left: 18px;
+            display: inline-block;
+        }
+
+        footer .footer-bottom .inner-content .social-icon li a {
+            position: relative;
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        footer .footer-bottom .inner-content .social-icon li a:hover {
+            color: #ffcc00;
+        }
+
+        @media only screen and (max-width: 991px) {
+            footer .footer-top h2 {
+                text-align: left !important;
+                font-size: 35px !important;
+            }
+
+            footer .footer-top .download-app-button {
+                margin-bottom: 1.5rem;
+            }
+
+            footer .footer-top .inner-column h2 {
+                text-align: left !important;
+                font-size: 35px !important;
+            }
+        }
+
+        .body {
+            overflow: hidden;
+        }
+
+        .col-lg-6 {
+            width: 40%;
+            margin-left: 3%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="Header">
+        <div class="top_header">
+            <div class="row">
+                <div class="column1" style="background-color:white;">
+                    <img src="https://th.bing.com/th/id/OIP.VJKh7A1Kz1RazynzczucvAHaFj?pid=ImgDet&rs=1" alt="Workplace"
+                        usemap="#workmap" width="100" height="79">
+
+                </div>
+                <div class="column2" style="background-color:white; width: 20%;">
+                    <div class="topnav">
+
+                        <div class="login-container">
+
+                            <button type="submit"><a href="./Login.html">Login||Sign up</a></button>
+
+                        </div><br>
+
+                    </div>
+                </div>
+                <div class="column2" style="width: 50%; float: right;">
+                    <marquee>Login for more feature option and latest update.</marquee>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="navbar">
+            <a href="index.html">Home</a>
+            <a href="#news">Blog</a>
+            <a href="./Contact us.html">contact us</a>
+            <a href="./about US.html">About us</a>
+            <a href="#news">Reader choice</a>
+
+        </div>
+        <div class="login">
+            <iframe src="./sign up.html" width="100%" height="600" style="border:1px solid black;">
+            </iframe>
+
+
+        </div>
+
+
+
+    </div>
+    <footer>
+        <!-- <img src="#" class="wave-img"> -->
+        <div class="shape-style">
+            <span class="circle-1"></span>
+            <span class="circle-2"></span>
+            <span class="circle-3"></span>
+            <span class="circle-4"></span>
+            <span class="circle-5"></span>
+            <span class="circle-6"></span>
+            <span class="circle-7"></span>
+            <span class="circle-8"></span>
+        </div>
+        <div class="footer-top">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <h2>Download <span>App</span> for <br> free Education</h2>
+                        <div class="download-app-button">
+                            <a href="#" class="download-btn active">
+                                <i class="fa fa-apple" aria-hidden="true"></i>
+                                <p>
+                                    <small>Download On</small>
+                                    <br> App Store
+                                </p>
+                            </a>
+                            <a href="#" class="download-btn">
+                                <i class="fa fa-android" aria-hidden="true"></i>
+                                <p>
+                                    <small>Git It On</small>
+                                    <br>Google Play
+                                </p>
+                            </a>
+
+                        </div>
+                        <a style="color:#ffcc00 ;">
+                            <marquee width="60%" direction="left" height="100px">
+                                App is coming soon......
+                            </marquee>
+                        </a>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="inner-column">
+                            <h2>For more <span>information</span> <br> Subscribr today</h2>
+                            <div class="subscribe-form">
+                                <form method="post" action="#">
+                                    <div class="form-group">
+                                        <input type="email" name="text" value="" placeholder="Enter mail address..."
+                                            required="">
+                                        <button type="submit">Subscribe</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="widgets-section">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-7">
+                                <div class="footer-widget">
+                                    <div class="logo">
+                                        <a href="#"><img src="images/logo/logo-light.png" alt=""></a>
+                                    </div>
+                                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+                                        incididunt ut labore et dolore magna aliqua. </p>
+                                    <ul class="footer-info">
+                                        <li><i class="fa fa-phone" aria-hidden="true"></i>+977 9812082238 </li>
+                                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i> NKIT@gmail.com </li>
+                                        <li><i class="fa fa-home" aria-hidden="true"></i> Basahiya-sonapara Road,
+                                            Janakpur-27
+                                            PIN 44600, NEPAL</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-5">
+                                <div class="footer-widget">
+                                    <h2>Links</h2>
+                                    <ul class="list">
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">SAAS</a></li>
+                                        <li><a href="#">Blog list</a></li>
+                                        <li><a href="#">Blog details</a></li>
+                                        <li><a href="#">Login</a></li>
+                                        <li><a href="#">Contact Us</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="row">
+                            <div class="col-lg-5">
+                                <div class="footer-widget">
+                                    <h2>Support</h2>
+                                    <ul class="list">
+                                        <li><a href="#">Contact Us</a></li>
+                                        <li><a href="#">Submit a Ticket</a></li>
+                                        <li><a href="#">Visit Knowledge Base</a></li>
+                                        <li><a href="#">Support System</a></li>
+                                        <li><a href="#">Refund Policy</a></li>
+                                        <li><a href="#">Professional Services</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-7">
+                                <div class="footer-widget twitter-widget">
+                                    <h2>Tweets</h2>
+                                    <div class="tweet-block">
+                                        <p><i class="fa fa-twitter" aria-hidden="true"></i>Lorem ipsum dolor sit amet,
+                                            con sectetur adipiscing elit, sed do eius mod tempor incididunt.</p>
+                                        <span class="author-name">@JohnDoe</span>
+                                    </div>
+                                    <div class="tweet-block">
+                                        <div class="block-inner">
+                                            <p><i class="fa fa-twitter" aria-hidden="true"></i>Lorem ipsum dolor sit
+                                                amet, con sectetur adipiscing elit, sed do eius mod tempor incididunt.
+                                            </p>
+                                            <span class="author-name">@JohnDoe</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <div class="inner-content">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p>2019 © Copyright <span>app</span> All rights Reserved.</p>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="social-icon">
+                                <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
